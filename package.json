@@ -1,0 +1,21 @@
+{
+  "name": "academy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "watch 'npm run build' dev/source",
+    "build": "npm run build:css && npm run build:autoprefixer",
+    "build:css": "node-sass dev/source/scss -o dev/output/css",
+    "build:autoprefixer": "postcss dev/output/css/**/*.css --use autoprefixer --config postcss.json --dir dist/css --no-map"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^9.6.1",
+    "node-sass": "^4.12.0",
+    "postcss-cli": "^6.1.3",
+    "watch": "^1.0.2"
+  }
+}
