@@ -1,0 +1,11 @@
+$icons: (
+        checkmark: a,
+        plus: b,
+        minus: c
+);
+
+@each $name, $value in $icons {
+    .icon--#{$name} {
+        content: $value;
+    }
+}

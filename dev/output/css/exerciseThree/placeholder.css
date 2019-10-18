@@ -1,0 +1,11 @@
+.submitButton {
+  display: inline-block;
+  background-color: #ff0000;
+  border: 1px solid #00ff00;
+  color: #000000; }
+
+.formButton {
+  display: flex;
+  background-color: #ff0000;
+  border: 1px solid #00ff00;
+  color: #000000; }

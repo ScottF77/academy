@@ -1,0 +1,11 @@
+@function calcValue($w, $h: 100) {
+    $result: 0;
+
+    $result: $w * $h;
+
+    @return $result;
+}
+
+.base{
+    margin-left: calcValue(2) * 1px;
+}

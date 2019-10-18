@@ -1,0 +1,26 @@
+%blockButton {
+    display: inline-block;
+    background-color: #ff0000;
+    border: 1px solid #00ff00;
+    color: #000000;
+}
+
+%flexButton {
+    display: flex;
+    background-color: #ff0000;
+    border: 1px solid #00ff00;
+    color: #000000;
+}
+
+%iconDisplay {
+    position: relative;
+    top: 10px;
+}
+
+.submitButton, %iconDisplay {  // %iconDisplay still won't appear even if it is included as part of the class as it's not extended
+    @extend %blockButton;
+}
+
+.formButton {
+    @extend %flexButton;
+}

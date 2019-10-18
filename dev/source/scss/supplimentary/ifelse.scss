@@ -1,0 +1,18 @@
+@mixin arrowSetting($w, $color, $direction){
+    width: $w;
+    color: $color;
+
+    @if $direction == right {
+        transform: rotate(90deg);
+    } @else if $direction == down {
+        transform: rotate(180deg);
+    } @else if $direction == right {
+        transform: rotate(270deg);
+    } @else {
+        transform: rotate(0deg);
+    }
+}
+
+.arrow {
+    @include arrowSetting(20px, green, down);
+}

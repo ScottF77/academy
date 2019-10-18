@@ -1,0 +1,104 @@
+$small: 480px;
+$medium: 768px;
+$large: 992px;
+$x-large: 1200px;
+
+$gutter-left-small: 5px;
+$gutter-right-small: 5px;
+$gutter-left-medium: 10px;
+$gutter-right-medium: 10px;
+$gutter-left-large: 15px;
+$gutter-right-large: 15px;
+
+body {
+    margin: 0 auto;
+    color: #fdfdfd;
+}
+
+.container {
+    margin: 0 5px;
+
+    @media screen and (min-width: $medium) {
+        max-width: calc(#{$large} - 1px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    @media screen and (min-width: $large) {
+        max-width: $x-large;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+.header {
+    color: #000;
+}
+
+.row {
+    display: flex;
+    // is this really necessary as all of the properties for flex are default
+    flex: 0 1 auto; // flex-grow 0 (default, all split equally) flex-shrink 1 (default, won't shrink) flex-basis auto (auto means that extra space will be distributed equally)
+    flex-wrap: wrap; // I think this will mean that it let's small viewports wrap to the next line
+    margin-left: $gutter-left-small;
+    margin-right: $gutter-right-small;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $medium) {
+        margin-left: $gutter-left-medium;
+        margin-right: $gutter-right-medium;
+    }
+
+    @media screen and (min-width: $large) {
+        margin-left: $gutter-left-large;
+        margin-right: $gutter-right-large;
+    }
+
+    + div {
+        min-height: 50px;
+        justify-content: center;
+    }
+}
+
+@mixin column-item-settings() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin column-settings($col-size) {
+    .col-#{$col-size} {
+        width: 100%;
+
+        @include column-item-settings;
+    }
+
+    @for $i from 1 through 12 {
+        .col-#{$col-size}-#{$i} {
+            @include column-item-settings;
+
+            flex-basis: (100% / 12) * $i;
+            max-width: (100% / 12) * $i;
+        }
+    }
+
+    @for $i from 1 through 12 {
+        .col-#{$col-size}-offset-#{$i} {
+            margin-left: (100% / 12) * $i;
+        }
+    }
+}
+
+@include column-settings('s');
+
+@media screen and (min-width: $medium) {
+    @include column-settings('m');
+}
+
+@media screen and (min-width: $large) {
+    @include column-settings('l');
+}
+
+.background-blue {
+    background-color: #6262bb;
+}

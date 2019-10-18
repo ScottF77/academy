@@ -1,0 +1,13 @@
+@function calcValue($numbers...) {
+    $result: 0;
+
+    @each $number in $numbers {
+        $result: $result + $number;
+    }
+
+    @return $result;
+}
+
+.base{
+    margin-left: calcValue(2,4,6,8,10) * 1px;
+}
